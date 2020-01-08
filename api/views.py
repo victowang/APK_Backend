@@ -8,9 +8,9 @@ def index(request):
 def applications(request):
     if request.method == 'GET':
         #info = aaptTools.getInfo("ademo.apk") # test erreur fichier non trouvé
-        info = aaptTools.getInfo("demo.apk")
-        response = JsonResponse(info.data, safe = False)
-
+        #info = aaptTools.getInfo("demo.apk")
+        #response = JsonResponse(info.data, safe = False)
+        response = JsonResponse(aaptTools.getAllAppInfos().data, safe = False)
         return response
 
     if request.method == 'POST':

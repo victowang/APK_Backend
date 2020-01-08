@@ -2,20 +2,31 @@ import os
 import subprocess
 from .serializers import AppSerializer
 
-def getInfo(fileName):
-    apk_file = "./data/" + fileName
-    apk_info_str = subprocess.getoutput("aapt dump badging " + apk_file)
+#TODO protect again directory traversal
+
+def getAppInfo(fileName):
+    appFile = "./media/" + fileName
+    appInfoStr = subprocess.getoutput("aapt dump badging " + appFile)
 
     #TODO traiter erreur
-    if apk_info_str[:7] == "W/asset":
+    if appInfoStr[:7] == "W/asset":
         print("ERREUR")
-        print(apk_info_str)
+        print(appInfoStr)
         return AppSerializer()
 
-    apk_info = {}
-    line = apk_info_str.split('\n')[0]
-    attrs = line.split(' ')[1:]
-    apk_info["application"] = fileName
-    apk_info["package_name"] = attrs[0][6:-1]
-    apk_info["package_version_code"] = attrs[1][13:-1]
-    return AppSerializer(apk_info)
+    appInfo = {}
+    packageStr = appInfoStr.split('\n')[0]
+    attrs = packageStr.split(' ')[1:]
+    appInfo["application"] = fileName
+    appInfo["package_name"] = attrs[0][6:-1]
+    appInfo["package_version_code"] = attrs[1][13:-1]
+    return AppSerializer(appInfo)
+
+def getAllAppInfos():
+    """Gets the metadata from all the apk files in the media directory"""
+    infos = []
+    appNamesStr = subprocess.getoutput("ls ./media/*.apk")
+    appNameList = appNamesStr.split('\n')
+    for appName in appNameList:
+        infos.append(getAppInfo(appName).data)
+    return AppSerializer(infos, many=True)

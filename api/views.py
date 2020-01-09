@@ -1,18 +1,25 @@
-from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse
 from . import aaptTools
+from django.views.decorators.csrf import csrf_exempt
+import os
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the api index.")
 
+@csrf_exempt #TODO secure it
 def applications(request):
     if request.method == 'GET':
-        #info = aaptTools.getInfo("ademo.apk") # test erreur fichier non trouvé
-        #info = aaptTools.getInfo("demo.apk")
-        #response = JsonResponse(info.data, safe = False)
         response = JsonResponse(aaptTools.getAllAppInfos().data, safe = False)
         return response
 
     if request.method == 'POST':
-        response = JsonResponse({}, safe = False)
-        return response
+        #TODO use a form to check input
+        handle_uploaded_file(request.FILES['file'], request.POST["appName"])
+        return JsonResponse({})
+
+
+def handle_uploaded_file(file, filename):
+    if not os.path.exists('media/'):
+        os.mkdir('media/')
+
+    with open('media/' + filename, 'wb+') as destination:
+        for chunk in file.chunks():
+            destination.write(chunk)

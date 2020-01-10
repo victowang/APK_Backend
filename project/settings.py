@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Allowa all for docker, not safe for production usage
+# Allow all for docker, not safe for production usage
 ALLOWED_HOSTS = ['*']
 
 

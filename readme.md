@@ -5,8 +5,7 @@
 * POST /api/applications
 
 ## API documentation generated with Postman:
-* [when running directly](https://documenter.getpostman.com/view/10031182/SWLh6SSX)
-* [when running with docker](https://documenter.getpostman.com/view/10031182/SWLh6mvR)
+* https://documenter.getpostman.com/view/10031182/SWLh6SSX
 
 ## Before running:
 _Set SECRET_KEY environment variable by creating a file named .env in project/ containing SECRET_KEY='#####'_  

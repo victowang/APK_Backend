@@ -9,5 +9,5 @@ class App(models.Model):
     #class Meta:
     #    app_label = 'api.app'
 
-    #def __str__(self):
-    #    return self.application
+    def __str__(self):
+        return self.application

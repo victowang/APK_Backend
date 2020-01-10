@@ -26,12 +26,13 @@ dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-#TODO set media dir path as a environment variable
+# TODO set media dir path as a environment variable
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# Allowa all for docker, not safe for production usage
+ALLOWED_HOSTS = ['*'] 
 
 
 # Application definition

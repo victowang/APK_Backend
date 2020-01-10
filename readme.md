@@ -5,7 +5,7 @@
 * POST http://127.0.0.1:8080/api/applications
 
 ## API Postman doc:
-* [https://documenter.getpostman.com/view/10031182/SWLh6mvR?version=latest]
+* https://documenter.getpostman.com/view/10031182/SWLh6SSX?version=latest 
 
 ## To do:
 * Secure uploaded input with a form
@@ -18,9 +18,16 @@
 * Send .apk file through http POST request (used curl poorly, switched to Postman)
 
 
-## Requires:
-docker-compose
+## Run directy:
+_check requirements.txt for needed packages_
 
-## Run in project root:
+python manage.py runserver
+
+_call api endpoint at http://127.0.0.1/8080/api/applications_
+
+## Run with docker compose:
 sudo docker-compose up
+
+_call api endpoint at http://0.0.0.0/8000/api/applications_
+
 

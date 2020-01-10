@@ -1,7 +1,6 @@
-project/settings.py
+# Directory where .apk files are stored
 media
 
-.venv
 .idea
 
 # Byte-compiled / optimized / DLL files

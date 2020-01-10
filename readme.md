@@ -1,4 +1,4 @@
-Backend to upload ans list applications
+#H1 Backend to upload ans list applications
 
 requires aapt installed on the host machine
 
@@ -7,7 +7,7 @@ API endpoints:
 * POST http://127.0.0.1:8080/api/applications
 
 API Postman doc:
-* (doc)[https://documenter.getpostman.com/view/10031182/SWLh6SSX?version=latest]
+* [https://documenter.getpostman.com/view/10031182/SWLh6SSX?version=latest]
 
 Challenges:
 * Set SECRET_KEY in settings.py as an environment variable

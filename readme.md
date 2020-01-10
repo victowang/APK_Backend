@@ -1,4 +1,4 @@
-#H1 Backend to upload ans list applications
+# Backend to upload ans list applications
 
 requires aapt installed on the host machine
 

@@ -10,7 +10,7 @@ Requires aapt installed on the host machine (not Python aapt package)
 ## API Postman doc:
 * [https://documenter.getpostman.com/view/10031182/SWLh6SSX?version=latest]
 
-## Todo:
+## To do:
 * Secure uploaded input with a form
 * Manage csrf token
 * Store media directory path as a variable in settings.py

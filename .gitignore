@@ -1,6 +1,8 @@
 # Directory where .apk files are stored
 media
 
+*.pdf
+
 .idea
 
 # Byte-compiled / optimized / DLL files

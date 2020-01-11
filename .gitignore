@@ -2,6 +2,7 @@
 media
 
 *.pdf
+*.apk
 
 .idea
 

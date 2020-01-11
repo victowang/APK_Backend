@@ -31,10 +31,9 @@ _Call api endpoints at http://0.0.0.0/8000/api/applications_
 
 
 ## Future improvements:
-* Secure uploaded input with a form
 * Manage csrf token
 * Store media directory path as a variable in settings.py
-* Give feedback if POST request has failed (check if the file already exists?)
+* Give feedback if request has failed
 
 ## Challenges faced:
 * Set SECRET_KEY in settings.py as an environment variable

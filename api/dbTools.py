@@ -1,10 +1,25 @@
 from .models import App
-from .serializers import AppSerializer
 
-def getAppInfos(appName):
+def getAppInfo(appName):
     app = App.objects.get(application=appName)
-    return AppSerializer(app).data
+    return app
 
-def getAllAppInfos():
+def getAllAppInfo():
     all_apps = App.objects.values().all()
-    return AppSerializer(all_apps, many=True).data
+    return all_apps
+
+def uploadAppInfo(data):
+    app = App(application = data['application'], package_name = data['package_name'], package_version_code = data['package_version_code'])
+    app.save()
+    return
+
+def updateAppInfo(data):
+    app = App.objects.get(application=data['application'])
+    app.package_name = data['package_name']
+    app.package_version_code = data['package_version_code']
+    app.save()
+    return
+
+def deleteAppInfo(appName):
+    return App.objects.filter(application=appName).delete()
+

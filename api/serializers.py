@@ -10,3 +10,6 @@ class AppSerializer(serializers.Serializer):
     class Meta:
         model = App
         fields = ('application', 'package_name', 'package_version_code')
+
+    def __str__(self):
+        return self.data

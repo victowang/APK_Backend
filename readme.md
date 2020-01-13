@@ -8,27 +8,32 @@
 * https://documenter.getpostman.com/view/10031182/SWLh6SSX
 
 ## Before running:
-_Set SECRET_KEY environment variable by creating a file named .env in project/ containing SECRET_KEY='#####'_  
-_Where '#####' is a 50 character string_
-
+##### Set SECREY_KEY as an environment variable :  
+_Create a file named .env in project/ containing :  
+SECRET_KEY='#####'  
+where '#####' is a 50 character string_
+##### Example :
 echo "SECRET_KEY='examplesecretkey0a%qp8^^d*d+qt0b3%+h177l0_7y3=+#el'" > project/.env
 
 ## Run directy:
-_Check requirements.txt for needed Python packages, run:_  
+##### If needed, install required packages:   
 pip install -r requirements.txt  
 
-_Check if aapt is installed, if not run:_  
+##### If needed install aapt:  
 apt-get install aapt  
 
+##### When running for the first time :  
+* python manage.py makemigrations
+* python manage.py migrate  
+##### Launch :  
 python manage.py runserver
 
-_Call api endpoints at http://127.0.0.1/8080/api/applications_
-
 ## Run with docker compose:
+##### When running for the first time :  
+* sudo docker-compose run web python manage.py makemigrations
+* sudo docker-compose run web python manage.py migrate  
+##### Launch :  
 sudo docker-compose up
-
-_Call api endpoints at http://0.0.0.0/8000/api/applications_
-
 
 ## Future improvements:
 * Manage csrf token

@@ -23,7 +23,7 @@ def getAppInfo(appName):
 def getAllAppInfo():
     """Gets the metadata from all the apk files in the media directory"""
     infos = []
-    appNamesStr = subprocess.getoutput("ls -a ./media/*.apk") #TODO eventuellement modifier pour proteger contre directory traversal
+    appNamesStr = subprocess.getoutput("ls -a ./media/*.apk")
     appNameList = appNamesStr.split('\n')
     for appName in appNameList:
         infos.append(getAppInfo(appName[8:]).data)
